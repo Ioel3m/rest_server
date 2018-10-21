@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 
 
 app.get('/', function (req, res) {
-    res.json('Hello World')
+    res.json('Server REst')
 })
 
 app.get('/usuario', function (req, res) {
