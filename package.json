@@ -1,0 +1,24 @@
+{
+  "name": "07--restserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ioel3m/rest_server.git"
+  },
+  "author": "jl3moran@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ioel3m/rest_server/issues"
+  },
+  "homepage": "https://github.com/Ioel3m/rest_server#readme"
+}
