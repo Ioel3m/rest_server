@@ -1,6 +1,6 @@
 {
   "name": "07--restserver",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Servicio REST desarrollado con node, express y mongodb para manejar el CRUD de una cafetería",
   "main": "index.js",
   "dependencies": {
