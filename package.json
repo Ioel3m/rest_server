@@ -1,6 +1,6 @@
 {
   "name": "07--restserver",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "Servicio REST desarrollado con node, express y mongodb para manejar el CRUD de una cafetería",
   "main": "index.js",
   "dependencies": {
@@ -10,6 +10,9 @@
     "mongoose": "^5.3.5",
     "mongoose-unique-validator": "^2.0.2",
     "underscore": "^1.9.1"
+  },
+  "engines": {
+    "node": "10.0.6"
   },
   "devDependencies": {},
   "scripts": {
