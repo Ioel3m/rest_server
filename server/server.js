@@ -17,7 +17,7 @@ app.use(require('./routes/usuario'))
 
 
 
-mongoose.connect('mongodb://localhost/cafe', (err, res) => {
+mongoose.connect(process.env.URLDB, (err, res) => {
     if (err) throw err
     console.log("Base de datos online...")
 });
