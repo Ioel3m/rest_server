@@ -17,7 +17,7 @@ app.use(require('./routes/usuario'))
 
 
 
-mongoose.connect(process.env.URLDB, { useNewUrlParser: true }, (err, res) => {
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, autoIndex: false }, (err, res) => {
     if (err) throw err
     console.log("Base de datos online...")
 });
