@@ -3,8 +3,9 @@ const app = express()
 const Usuario = require('../models/usuario')
 const bcrypt = require('bcrypt')
 const _ = require('underscore')
+const { checkToken, checkRolAdmin } = require('../middlewares/autenticacion')
 
-app.put('/usuario/:id', function (req, res) {
+app.put('/usuario/:id', checkToken, checkRolAdmin, function (req, res) {
     let id = req.params.id
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
 
@@ -24,7 +25,7 @@ app.put('/usuario/:id', function (req, res) {
 
 })
 
-app.delete('/usuario/:id', function (req, res) {
+app.delete('/usuario/:id', checkToken, function (req, res) {
     let id = req.params.id
     let body = _.pick(req.body, ['eliminar'])
 
@@ -71,7 +72,13 @@ app.delete('/usuario/:id', function (req, res) {
 
 
 
-app.get('/usuario', function (req, res) {
+app.get('/usuario', checkToken, function (req, res) {
+
+    // return res.json({
+    //     usuario: req.usuario,
+    //     nombre: req.usuario.nombre
+    // })
+
     let from = Number(req.query.from || 0)
     let limit = Number(req.query.limit || 0)
     Usuario.find({ estado: true }, 'nombre email').limit(limit).skip(from)
@@ -84,7 +91,7 @@ app.get('/usuario', function (req, res) {
                 })
             }
 
-            Usuario.count({ estado: true }, (err, total) => {
+            Usuario.countDocuments({ estado: true }, (err, total) => {
                 res.json({
                     ok: true,
                     usuarios,
@@ -95,7 +102,7 @@ app.get('/usuario', function (req, res) {
     // res.json('GET usuario')
 })
 
-app.post('/usuario', function (req, res) {
+app.post('/usuario', checkToken, checkRolAdmin, function (req, res) {
     let body = req.body
     let usuario = new Usuario({
         nombre: body.nombre,
